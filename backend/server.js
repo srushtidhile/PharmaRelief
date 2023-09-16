@@ -27,7 +27,15 @@ const usersRouter = require('./routes/users');
 
 app.use('/users', usersRouter)
 
+app.use('/login', (req, res) => {
+    res.send({
+      token: 'test123'
+    });
+  });
+
 // starting the server
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
+
+app.listen(8080, () => console.log('API is running on http://localhost:8080/login'));
